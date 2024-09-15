@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Modal, Box, Typography, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 
 const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
-  const [quantity, setQuantity] = useState(cartItems.map(item => ({ id: item.id, quantity: 1 })));
   
-//   // Set initial quantity for each item in the cart
-//   const [quantity, setQuantity] = useState([]);
-
-//   // Update quantity when cartItems change (on item add/remove)
-//   useEffect(() => {
-//     setQuantity(cartItems.map(item => ({ id: item.id, quantity: 1 })));
-//   }, [cartItems]);
+  const [quantity, setQuantity] = useState(cartItems.map(item => ({ id: item.id, quantity: 1 })));
   
   // Handle quantity change (increment or decrement)
   const handleQuantityChange = (id, increment) => {

@@ -1,18 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React, { useState} from 'react';
 import { AppBar, Toolbar, Typography, Grid, Button, Box } from '@mui/material';
 import MenuCard from '../components/MenuCard';
 import AddMenuModal from '../modal/AddMenuModal';
 
 
-const Admin = ({menuItems}) => {
+const Admin = ({menuItems, addMenuItem, deleteMenuItem}) => {
   
-  const [items, setItems] = useState(menuItems);
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const handleAddItem = (newItem) => {
-    setItems([...items, newItem]); // Add new item to the existing list
-  };
+  const [menuOpen, setMenuOpen] = useState(false); // Control modal open/close
 
   return (
     <>
@@ -39,26 +33,17 @@ const Admin = ({menuItems}) => {
           </Box>
 
           {/* Right Section: Add Menu Button */}
-          <Button variant="contained" onClick={handleOpen} sx={{ fontFamily: 'Inter', 
+          <Button variant="contained" onClick={() => setMenuOpen(true)} sx={{ fontFamily: 'Inter', 
           backgroundColor: '#CE383C', color: '#FFFFFF',               
           borderRadius: '6px', padding: '8px 16px',        
           '&:hover': { backgroundColor: '#AB3033', color: '#fff'} }}>
             ADD MENU
           </Button>
-          {/* <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-            {items.map((item) => (
-              <MenuCard
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                price={item.price}
-                description={item.description}
-                image={item.image}
-                isAdmin={true}
-              />
-            ))}
-          </div> */}
-          <AddMenuModal open={open} onClose={handleClose} onAdd={handleAddItem} />
+          <AddMenuModal 
+          open={menuOpen}
+          onClose={() => setMenuOpen(false)}
+          addMenuItem={addMenuItem} 
+          />
         </Toolbar>
       </AppBar>
       
@@ -79,7 +64,7 @@ const Admin = ({menuItems}) => {
 
       {/* Menu Cards Section */}
       <Grid container spacing={2} sx={{ padding: '20px' }}>
-        <MenuCard />
+        <MenuCard isAdmin={true} menuItems={menuItems} deleteMenuItem={deleteMenuItem}/>
       </Grid>
       
     </>

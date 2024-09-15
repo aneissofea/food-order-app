@@ -1,13 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React, { useState} from 'react';
 import { AppBar, Toolbar, Typography, Grid, Button, Box } from '@mui/material';
 import MenuCard from '../components/MenuCard';
 import AddToCartModal from '../modal/AddToCartModal';
 
 
 
-const Users = ({menuItems}) => {
+const Users = ({menuItems, onAddToCart}) => {
     
-
     const [cartItems, setCartItems] = useState([]);
     const [open, setOpen] = useState(false);      // State to control modal open/close
 
@@ -30,7 +29,6 @@ const Users = ({menuItems}) => {
       <AppBar position="fixed" elevation={0} sx={{ backgroundColor:'#7DA0B3', padding: '0',}}>
         <Toolbar>
           <Typography variant="h6" sx={{ fontFamily: 'Inter', fontSize:'28px', fontWeight:'bold' }}>PSSTCO.</Typography>
-          {/* <Box sx={{ flexGrow: 1 }} /> */}
 
           {/* Middle Section: Links (add component={Link} to Button if got links ya) */}
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', fontFamily: 'Inter', fontSize:'18px,'}}>
@@ -71,7 +69,7 @@ const Users = ({menuItems}) => {
         <Typography variant="h1" component="div" sx={{textAlign: 'center', fontFamily:'Inria-Serif', fontSize:'280px', color:"#D9C447", lineHeight:'50px'}}>
           PIZZERIA
         </Typography>
-        <Box sx={{display:'flex', justifyContent:'flex-start', padding:'0 0 0 65px'}}>
+        <Box sx={{display:'flex', textAlign:'center', padding:'0 0 0 65px'}}>
           <Box sx={{ width:'380px', padding:'0 0 45px', marginTop: "auto"}}>
             <Typography variant="body1" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter', fontSize:'20px', fontWeight:'bold',}}>
               YOU'RE GOING TO FALL IN LOVE
@@ -99,7 +97,7 @@ const Users = ({menuItems}) => {
 
       {/* Menu Cards Section */}
       <Grid container spacing={2} sx={{ padding: '20px' }}>
-        <MenuCard isAdmin={false} onAddToCart={handleAddToCart} />  {/* Pass the add-to-cart function */}
+        <MenuCard isAdmin={false} menuItems={menuItems} onAddToCart={handleAddToCart}/>  {/* Pass the add-to-cart function : onAddToCart={handleAddToCart} */}
       </Grid>
       
     </>
