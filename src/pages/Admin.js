@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { AppBar, Toolbar, Typography, Grid, Button, Box } from '@mui/material';
-import MealsItem from '../components/MealsItem';
+import MenuCard from '../components/MenuCard';
 import AddMenuModal from '../modal/AddMenuModal';
 
 
@@ -79,7 +79,7 @@ const Admin = ({menuItems}) => {
 
       {/* Menu Cards Section */}
       <Grid container spacing={2} sx={{ padding: '20px' }}>
-        <MealsItem />
+        <MenuCard />
       </Grid>
       
     </>

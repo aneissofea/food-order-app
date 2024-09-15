@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Modal, Box, Typography, TextField, Button } from '@mui/material';
+import { Modal, Box, Typography, TextField, Button, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 const AddMenuModal = ({ open, onClose, onAdd }) => {
   const [name, setName] = useState('');
@@ -34,6 +35,15 @@ const AddMenuModal = ({ open, onClose, onAdd }) => {
         boxShadow: 24, borderRadius:'12px',
         p: 4 
       }}>
+
+        {/* Close button */}
+        <IconButton 
+          onClick={onClose}
+          sx={{ position: 'absolute', top: 16, right: 16 }}
+        >
+          <CloseIcon />
+        </IconButton>
+
         <Typography component="h2" textAlign="center" sx={{ fontFamily: 'Inter', fontSize:'30px', fontWeight:'bold'}} gutterBottom>
           Add A Menu
         </Typography>

@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Modal, Box, Typography, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CloseIcon from '@mui/icons-material/Close';
 
 const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
   const [quantity, setQuantity] = useState(cartItems.map(item => ({ id: item.id, quantity: 1 })));
+  
+//   // Set initial quantity for each item in the cart
+//   const [quantity, setQuantity] = useState([]);
 
+//   // Update quantity when cartItems change (on item add/remove)
+//   useEffect(() => {
+//     setQuantity(cartItems.map(item => ({ id: item.id, quantity: 1 })));
+//   }, [cartItems]);
+  
+  // Handle quantity change (increment or decrement)
   const handleQuantityChange = (id, increment) => {
     setQuantity((prev) =>
       prev.map((q) =>
@@ -14,11 +24,13 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
       )
     );
   };
-
+  
+  // Handle item removal from the cart
   const handleRemoveItem = (id) => {
     onRemove(id);
   };
-
+  
+  // Calculate the total amount based on item price and quantity
   const getTotal = () => {
     return cartItems.reduce((total, item) => {
       const itemQuantity = quantity.find(q => q.id === item.id)?.quantity || 1;
@@ -38,15 +50,27 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
         boxShadow: 24, borderRadius:'12px',
         p: 4
       }}>
+
+        {/* Close button */}
+        <IconButton 
+          onClick={onClose}
+          sx={{ position: 'absolute', top: 16, right: 16 }}
+        >
+          <CloseIcon />
+        </IconButton>
+
         <Typography component="h2" textAlign="center" sx={{ fontFamily: 'Inter', fontSize:'30px', fontWeight:'bold'}} gutterBottom>
           Your Cart
         </Typography>
+
+        {/* If cart is empty */}
         {cartItems.length === 0 ? (
           <Typography variant="body1" color="text.secondary">
             Your cart is empty
           </Typography>
         ) : (
           <>
+            {/* Cart Items List */}
             {cartItems.map((item) => (
               <Box key={item.id} display="flex" justifyContent="space-between" alignItems="center" mb={2}>
                 <Box width='75%'>
@@ -57,10 +81,18 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
                     RM{item.price}
                   </Typography>
                 </Box>
+
+                {/* Quantity controls */}
                 <Box display="flex" alignItems="center" width='15%' > 
-                  <Button onClick={() => handleQuantityChange(item.id, -1)} disabled={quantity.find(q => q.id === item.id)?.quantity === 1} color='black'>-</Button>
+                  <Button onClick={() => handleQuantityChange(item.id, -1)} 
+                  disabled={quantity.find(q => q.id === item.id)?.quantity === 1} 
+                  color='black'>
+                    -
+                  </Button>
                   <Typography>{quantity.find(q => q.id === item.id)?.quantity}</Typography>
-                  <Button onClick={() => handleQuantityChange(item.id, 1) } color='black'>+</Button>
+                  <Button onClick={() => handleQuantityChange(item.id, 1) } color='black'>
+                    +
+                  </Button>
                 </Box>
                 <IconButton color="grey" onClick={() => handleRemoveItem(item.id)} width='10%'>
                   <DeleteIcon />

@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { AppBar, Toolbar, Typography, Grid, Button, Box } from '@mui/material';
-import MealsItem from '../components/MealsItem';
+import MenuCard from '../components/MenuCard';
 import AddToCartModal from '../modal/AddToCartModal';
 
 
@@ -55,26 +55,14 @@ const Users = ({menuItems}) => {
           '&:hover': { backgroundColor: '#AB3033', color: '#fff',} }}>
             Your Cart
           </Button>
-          {/* <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-            {menuItems.map((item) => (
-              <MealsItem
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                price={item.price}
-                description={item.description}
-                image={item.image}
-                isAdmin={false}
-                onAddToCart={() => handleAddToCart(item)}
-              />
-            ))}
-          </div> */}
+
           <AddToCartModal 
           open={open}              // Controls visibility of modal
           onClose={handleCloseCart} // Close modal function
           cartItems={cartItems}     // Pass cart items to modal
           onRemove={handleRemoveFromCart} // Pass remove function 
           /> 
+
         </Toolbar>
       </AppBar>
 
@@ -111,19 +99,9 @@ const Users = ({menuItems}) => {
 
       {/* Menu Cards Section */}
       <Grid container spacing={2} sx={{ padding: '20px' }}>
-        <MealsItem isAdmin={false} onAddToCart={handleAddToCart} />  {/* Pass the add-to-cart function */}
+        <MenuCard isAdmin={false} onAddToCart={handleAddToCart} />  {/* Pass the add-to-cart function */}
       </Grid>
       
-      {/* <Grid container spacing={2} style={{ padding: '20px' }}> 
-        <Grid item xs={12}>
-          <Typography variant="h4">Available Foods</Typography>
-        </Grid>
-        <Grid container spacing={2}>
-        {items.map((item) => (
-          <MealsItem key={item.id} meal={item} />
-        ))}
-        </Grid>
-      </Grid> */}
     </>
   );
 };

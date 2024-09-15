@@ -46,18 +46,18 @@ const menuItems = [
   },
 ];
 
-const MealsItem = ({id, isAdmin, onAddToCart }) => {
-  // Handle Add to Cart for User
-  const handleAddToCart = () => {
-    console.log(`Add to cart item with id: ${id}`);
-    // Add to Cart logic (e.g., call an API or update state)
-  };
+const MenuCard = ({id, isAdmin, onAddToCart }) => {
+  // // Handle Add to Cart for User
+  // const handleAddToCart = () => {
+  //   console.log(`Add to cart item with id: ${id}`);
+  //   // Add to Cart logic (e.g., call an API or update state)
+  // };
 
-  // Handle Delete for Admin
-  const handleDelete = () => {
-    console.log(`Delete item with id: ${id}`);
-    // Delete item logic (e.g., call an API or update state)
-  };
+  // // Handle Delete for Admin
+  // const handleDelete = () => {
+  //   console.log(`Delete item with id: ${id}`);
+  //   // Delete item logic (e.g., call an API or update state)
+  // };
 
   return (
     <Grid container spacing={3} direction="row" sx={{ width:'90%', justifyContent: "center", alignItems: "center"}}>
@@ -112,14 +112,6 @@ const MealsItem = ({id, isAdmin, onAddToCart }) => {
                   ADD TO CART
                 </Button>
               )}
-              {/* <Button 
-              variant="contained" color="none" 
-              disableElevation={true} onClick={() => handleAction(id)}
-              sx={{
-                position: 'relative',color:'#FFF', 
-                fontFamily:'Inter', fontSize:'14px'}}> 
-                {isAdmin ? 'DELETE' : 'ADD TO CART'}
-              </Button> */}
             </CardActions>
 
           </Card>
@@ -129,33 +121,5 @@ const MealsItem = ({id, isAdmin, onAddToCart }) => {
   );
 };
 
-export default MealsItem;
+export default MenuCard;
 
-// import React, { useContext } from 'react';
-// import { Card, CardContent, Typography, Button, Grid } from '@mui/material';
-// import CartContext from '../store/cart-context';
-
-// const MealsItem = ({ meal }) => {
-//   const { dispatch } = useContext(CartContext);
-
-//   const addToCart = () => {
-//     dispatch({ type: 'ADD_TO_CART', payload: meal });
-//   };
-
-//   return (
-//     <Grid item xs={12} sm={6} md={4}>
-//       <Card>
-//         <CardContent>
-//           <Typography variant="h5">{meal.name}</Typography>
-//           <Typography variant="body2">{meal.description}</Typography>
-//           <Typography variant="h6">${meal.price}</Typography>
-//           <Button variant="contained" color="primary" > 
-//             Add to Cart
-//           </Button>       {/*onClick={addToCart}*/}
-//         </CardContent>
-//       </Card>
-//     </Grid>
-//   );
-// };
-
-// export default MealsItem;
