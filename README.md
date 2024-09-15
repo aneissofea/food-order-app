@@ -1,4 +1,4 @@
-# A work in progress
+# Food Ordering WebApp Site
 Introduction:
 This simple website was designed by yours truly, using Figma. The site allows users to select the food item and add them to the cart. The users can also delete the food item from the cart if they accidentally added them. As we know that all kinds of applications are managed by admins. So, in this application I have also implemented the functionality for the admins. Basically, admins can add the new food items and delete them if they are not available for users to buy.
 
