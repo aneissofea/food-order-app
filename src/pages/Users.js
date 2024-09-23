@@ -5,19 +5,36 @@ import AddToCartModal from '../modal/AddToCartModal';
 
 
 
-const Users = ({menuItems, onAddToCart}) => {
+const Users = ({menuItems}) => {
     
     const [cartItems, setCartItems] = useState([]);
     const [open, setOpen] = useState(false);      // State to control modal open/close
 
     // Add item to cart
     const handleAddToCart = (item) => {
-      setCartItems([...cartItems, item]);
+      const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+
+      if (existingItem) {
+        setCartItems(cartItems.map(cartItem => 
+          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+        ));
+      } else {
+        setCartItems([...cartItems, { ...item, quantity: 1 }]);
+      }
     };
 
     // Remove item from cart
     const handleRemoveFromCart = (id) => {
       setCartItems(cartItems.filter(item => item.id !== id));
+    };
+
+    // Update item quantity in cart
+    const handleUpdateQuantity = (id, increment) => {
+      setCartItems(cartItems.map(item =>
+        item.id === id
+          ? { ...item, quantity: Math.max(1, item.quantity + increment) }
+          : item
+      ));
     };
 
     const handleOpenCart = () => setOpen(true);        // Open cart modal
@@ -32,18 +49,10 @@ const Users = ({menuItems, onAddToCart}) => {
 
           {/* Middle Section: Links (add component={Link} to Button if got links ya) */}
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', fontFamily: 'Inter', fontSize:'18px,'}}>
-            <Button  to="/" color="inherit">
-              Home
-            </Button>
-            <Button  to="/menu" color="inherit">
-              Menu
-            </Button>
-            <Button to="/about" color="inherit">
-              About
-            </Button>
-            <Button  to="/contact" color="inherit">
-              Contact
-            </Button>
+            <Button to="/" color="inherit">Home</Button>
+            <Button to="/menu" color="inherit">Menu</Button>
+            <Button to="/about" color="inherit">About</Button>
+            <Button to="/contact" color="inherit">Contact</Button>
           </Box>
 
           {/* Right Section: Cart Button */}
@@ -58,7 +67,8 @@ const Users = ({menuItems, onAddToCart}) => {
           open={open}              // Controls visibility of modal
           onClose={handleCloseCart} // Close modal function
           cartItems={cartItems}     // Pass cart items to modal
-          onRemove={handleRemoveFromCart} // Pass remove function 
+          onRemove={handleRemoveFromCart} // Pass remove function
+          onUpdateQuantity={handleUpdateQuantity} // Pass quantity update function
           /> 
 
         </Toolbar>
@@ -97,7 +107,7 @@ const Users = ({menuItems, onAddToCart}) => {
 
       {/* Menu Cards Section */}
       <Grid container spacing={2} sx={{ padding: '20px' }}>
-        <MenuCard isAdmin={false} menuItems={menuItems} onAddToCart={handleAddToCart}/>  {/* Pass the add-to-cart function : onAddToCart={handleAddToCart} */}
+        <MenuCard isAdmin={false} menuItems={menuItems} onAddToCart={handleAddToCart}/>  {/* Pass the add-to-cart function*/}
       </Grid>
       
     </>

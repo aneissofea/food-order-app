@@ -110,10 +110,6 @@ const AddMenuModal = ({ open, onClose, addMenuItem }) => {
             margin="normal"
           />
 
-          {/* File upload input, basic design*/}
-          {/* <input type="file" onChange={handleImageUpload} />
-          {image && <Typography>Image uploaded successfully!</Typography>} */}
-
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
             {/* Custom File Upload Button */}
             <input
@@ -150,18 +146,6 @@ const AddMenuModal = ({ open, onClose, addMenuItem }) => {
             {image && <Typography sx={{ fontSize: '18px', color: '#D9C447' }}>Image uploaded successfully!</Typography>}
 
           </Box>
-
-          {/*your initial button design huu uncomment when needed  */}
-          {/* <Box sx={{display:'flex', textAlign:'center', justifyContent:'center',padding:'20px 0 0'}}>
-          <Button type="submit" variant="contained" disableElevation={true} sx={{ fontFamily: 'Inter', 
-            backgroundColor: 'white', color: '#000000', borderRadius: '6px', width:'130px',              
-            borderColor:'#00000',padding: '8px 16px', }}>
-              Choose File
-            </Button>
-            <Typography component="h2" sx={{ fontFamily: 'Inter', fontSize:'16px', padding: '0 0 0 20px'}}>
-              No file chosen
-            </Typography>
-          </Box> */}
 
           <Box sx={{padding:'20px 0 0', textAlign:'center', justifyContent:'center',}}>
             <Button type="submit" onClick={handleSubmit} variant="contained"  sx={{ fontFamily: 'Inter', 

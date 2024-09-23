@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Modal, Box, Typography, Button, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseIcon from '@mui/icons-material/Close';
 
-const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
+const AddToCartModal = ({ open, onClose, cartItems, onRemove, onUpdateQuantity }) => {
   
-  const [quantity, setQuantity] = useState(cartItems.map(item => ({ id: item.id, quantity: 1 })));
+  // Cart items state (including quantity)
+  const [updatedCartItems, setUpdatedCartItems] = useState([]);
+
+  // Sync the cart items from the initial props (whenever the modal opens or cartItems are updated)
+  useEffect(() => {
+    setUpdatedCartItems(cartItems);
+  }, [cartItems]);
   
   // Handle quantity change (increment or decrement)
   const handleQuantityChange = (id, increment) => {
-    setQuantity((prev) =>
-      prev.map((q) =>
-        q.id === id
-          ? { ...q, quantity: q.quantity + increment }
-          : q
-      )
-    );
+    onUpdateQuantity(id, increment); // Call the parent function to update quantity
   };
-  
+
   // Handle item removal from the cart
   const handleRemoveItem = (id) => {
     onRemove(id);
@@ -25,9 +25,8 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
   
   // Calculate the total amount based on item price and quantity
   const getTotal = () => {
-    return cartItems.reduce((total, item) => {
-      const itemQuantity = quantity.find(q => q.id === item.id)?.quantity || 1;
-      return total + item.price * itemQuantity;
+    return updatedCartItems.reduce((total, item) => {
+      return total + item.price * item.quantity;
     }, 0);
   };
 
@@ -57,14 +56,14 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
         </Typography>
 
         {/* If cart is empty */}
-        {cartItems.length === 0 ? (
+        {updatedCartItems.length === 0 ? (
           <Typography variant="body1" color="text.secondary">
             Your cart is empty
           </Typography>
         ) : (
           <>
             {/* Cart Items List */}
-            {cartItems.map((item) => (
+            {updatedCartItems.map((item) => (
               <Box key={item.id} display="flex" justifyContent="space-between" alignItems="center" mb={2}>
                 <Box width='75%'>
                   <Typography sx={{ fontFamily: 'Inter', fontSize:'18px', fontWeight:'bold'}}>
@@ -72,17 +71,20 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove }) => {
                   </Typography>
                   <Typography sx={{ fontFamily: 'Inter', fontSize:'15px'}}>
                     RM{item.price}
+                    <span style={{ fontWeight: 'bold', color: '#666' }}>
+                      x {item.quantity}
+                    </span>
                   </Typography>
                 </Box>
 
                 {/* Quantity controls */}
                 <Box display="flex" alignItems="center" width='15%' > 
                   <Button onClick={() => handleQuantityChange(item.id, -1)} 
-                  disabled={quantity.find(q => q.id === item.id)?.quantity === 1} 
+                  disabled={item.quantity === 1} 
                   color='black'>
                     -
                   </Button>
-                  <Typography>{quantity.find(q => q.id === item.id)?.quantity}</Typography>
+                  <Typography>{item.quantity}</Typography>
                   <Button onClick={() => handleQuantityChange(item.id, 1) } color='black'>
                     +
                   </Button>
