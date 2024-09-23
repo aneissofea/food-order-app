@@ -94,7 +94,7 @@ const Users = ({menuItems}) => {
             Lorem ipsum dolor sit amet, consectetur adipiscin g elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             </Typography>
           </Box>
-          <Box component="img" src="https://iili.io/drBX8LQ.png" alt="Pizza" sx={{ alignItems:'center', width: 'auto', height: '550px' }} />
+          <Box component="img" src="https://iili.io/drBX8LQ.png" alt="Pizza" sx={{ alignSelf:'center', width: 'auto', height: '100%', maxHeight: '550px' }} />
         </Box>
       </Box>
 

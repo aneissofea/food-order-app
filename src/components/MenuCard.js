@@ -4,7 +4,7 @@ import { Grid, Card, CardMedia, CardContent, CardActions, Typography, Button, Bo
 const MenuCard = ({ isAdmin, menuItems, deleteMenuItem, onAddToCart }) => {
 
   return (
-    <Grid container spacing={3} direction="row" sx={{ width:'90%', justifyContent: "center", alignItems: "center"}}>
+    <Grid container spacing={3} direction="row" sx={{ maxWidth: '1200px', width:'90%', justifyContent: "center", margin: '0 auto', padding: '20px 0'}}>
       {menuItems.map((item) => (
         <Grid item xs={12} sm={6} md={4} key={item.id} >
           <Card sx={{width:'320px', height:'340px', borderRadius:'15px', backgroundColor:'#7DA0B3', padding: '0 0 5px'}}>
