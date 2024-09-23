@@ -71,9 +71,6 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove, onUpdateQuantity }
                   </Typography>
                   <Typography sx={{ fontFamily: 'Inter', fontSize:'15px'}}>
                     RM{item.price}
-                    <span style={{ fontWeight: 'bold', color: '#666' }}>
-                      x {item.quantity}
-                    </span>
                   </Typography>
                 </Box>
 
