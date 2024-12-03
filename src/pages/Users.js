@@ -5,6 +5,7 @@ import AddToCartModal from '../modal/AddToCartModal';
 
 
 
+
 const Users = ({menuItems}) => {
     
     const [cartItems, setCartItems] = useState([]);
@@ -45,10 +46,10 @@ const Users = ({menuItems}) => {
       {/* AppBar Section */}
       <AppBar position="fixed" elevation={0} sx={{ backgroundColor:'#7DA0B3', padding: '0',}}>
         <Toolbar>
-          <Typography variant="h6" sx={{ fontFamily: 'Inter', fontSize:'28px', fontWeight:'bold' }}>PSSTCO.</Typography>
+          <Typography variant="h6" sx={{ fontFamily: 'Inter, Arial, sans-serif', fontSize:'28px', fontWeight:'bold' }}>PSSTCO.</Typography>
 
           {/* Middle Section: Links (add component={Link} to Button if got links ya) */}
-          <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', fontFamily: 'Inter', fontSize:'18px,'}}>
+          <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', fontFamily: 'Inter, Arial, sans-serif', fontSize:'18px,'}}>
             <Button to="/" color="inherit">Home</Button>
             <Button to="/menu" color="inherit">Menu</Button>
             <Button to="/about" color="inherit">About</Button>
@@ -56,9 +57,9 @@ const Users = ({menuItems}) => {
           </Box>
 
           {/* Right Section: Cart Button */}
-          <Button variant="contained" onClick={handleOpenCart} sx={{ fontFamily: 'Inter', 
+          <Button variant="contained" onClick={handleOpenCart} sx={{ fontFamily: 'Inter, Arial, sans-serif', 
           backgroundColor: '#CE383C', color: '#FFFFFF',               
-          borderRadius: '6px', padding: '8px 16px',        
+          borderRadius: '6px', padding: '8px 16px', fontWeight:'bold',   
           '&:hover': { backgroundColor: '#AB3033', color: '#fff',} }}>
             Your Cart
           </Button>
@@ -81,16 +82,16 @@ const Users = ({menuItems}) => {
         </Typography>
         <Box sx={{display:'flex', textAlign:'center', padding:'0 0 0 65px'}}>
           <Box sx={{ width:'380px', padding:'0 0 45px', marginTop: "auto"}}>
-            <Typography variant="body1" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter', fontSize:'20px', fontWeight:'bold',}}>
+            <Typography variant="body1" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter, Arial, sans-serif', fontSize:'20px', fontWeight:'bold',}}>
               YOU'RE GOING TO FALL IN LOVE
             </Typography>
-            <Typography variant="body2" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter', fontSize:'19px', lineHeight:'1.45', padding:'0 0 20px'}}>
+            <Typography variant="body2" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter, Arial, sans-serif', fontSize:'19px', lineHeight:'1.45', padding:'0 0 20px'}}>
             Lorem ipsum dolor sit amet, consectetur adipiscin g elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             </Typography>
-            <Typography variant="body1" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter', fontSize:'20px', fontWeight:'bold',}}>
+            <Typography variant="body1" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter, Arial, sans-serif', fontSize:'20px', fontWeight:'bold',}}>
             PIZZA YOU’VE NEVER HAD BEFORE
             </Typography>
-            <Typography variant="body2" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter', fontSize:'19px', lineHeight:'1.45'}}>
+            <Typography variant="body2" sx={{textAlign: 'left', color:'#FFF', fontFamily:'Inter, Arial, sans-serif', fontSize:'19px', lineHeight:'1.45'}}>
             Lorem ipsum dolor sit amet, consectetur adipiscin g elit, sed do eiusmod tempor incididunt ut labore et dolore magna
             </Typography>
           </Box>
@@ -100,7 +101,7 @@ const Users = ({menuItems}) => {
 
       {/* Menu Title */}
       <Box sx={{ textAlign: 'center', margin: '40px 0 40px' }}>
-        <Typography variant="h4" component="div" sx={{color:'#CE383C', fontFamily:'Inter', fontSize:'64px', fontWeight:'bold',}}>
+        <Typography variant="h4" component="div" sx={{color:'#CE383C', fontFamily:'Inter, Arial, sans-serif', fontSize:'64px', fontWeight:'bold',}}>
           menu
         </Typography>
       </Box>

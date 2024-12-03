@@ -51,7 +51,7 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove, onUpdateQuantity }
           <CloseIcon />
         </IconButton>
 
-        <Typography component="h2" textAlign="center" sx={{ fontFamily: 'Inter', fontSize:'30px', fontWeight:'bold'}} gutterBottom>
+        <Typography component="h2" textAlign="center" sx={{ fontFamily: 'Inter, Arial, sans-serif', fontSize:'30px', fontWeight:'bold'}} gutterBottom>
           Your Cart
         </Typography>
 
@@ -66,10 +66,10 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove, onUpdateQuantity }
             {updatedCartItems.map((item) => (
               <Box key={item.id} display="flex" justifyContent="space-between" alignItems="center" mb={2}>
                 <Box width='75%'>
-                  <Typography sx={{ fontFamily: 'Inter', fontSize:'18px', fontWeight:'bold'}}>
+                  <Typography sx={{ fontFamily: 'Inter, Arial, sans-serif', fontSize:'18px', fontWeight:'bold'}}>
                     {item.title}
                   </Typography>
-                  <Typography sx={{ fontFamily: 'Inter', fontSize:'15px'}}>
+                  <Typography sx={{ fontFamily: 'Inter, Arial, sans-serif', fontSize:'15px'}}>
                     RM{item.price}
                   </Typography>
                 </Box>
@@ -92,10 +92,10 @@ const AddToCartModal = ({ open, onClose, cartItems, onRemove, onUpdateQuantity }
               </Box>
             ))}
             <Box display='flex' flexDirection='row' justifyContent={'space-between'} padding='0 0 20px'>
-                <Typography fontFamily= 'Inter' fontSize='22px' fontWeight='bold'>Total Amount:</Typography>
-                <Typography fontFamily= 'Inter' fontSize='22px' fontWeight='bold'>RM{getTotal().toFixed(2)}</Typography>
+                <Typography fontFamily= 'Inter, Arial, sans-serif' fontSize='22px' fontWeight='bold'>Total Amount:</Typography>
+                <Typography fontFamily= 'Inter, Arial, sans-serif' fontSize='22px' fontWeight='bold'>RM{getTotal().toFixed(2)}</Typography>
             </Box>
-            <Button variant="contained" sx={{ fontFamily:'Inter', backgroundColor:'#CE383C', 
+            <Button variant="contained" sx={{ fontFamily:'Inter, Arial, sans-serif', backgroundColor:'#CE383C', 
             color: '#FFFFFF', borderRadius: '30px', width:'120px', padding: '8px 16px', 
             '&:hover': { backgroundColor: '#AB3033', color: '#fff',} }}>
                 Order

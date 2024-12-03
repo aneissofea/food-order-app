@@ -68,7 +68,7 @@ const AddMenuModal = ({ open, onClose, addMenuItem }) => {
           <CloseIcon />
         </IconButton>
 
-        <Typography component="h2" textAlign="center" sx={{ fontFamily: 'Inter', fontSize:'30px', fontWeight:'bold'}} gutterBottom>
+        <Typography component="h2" textAlign="center" sx={{ fontFamily: 'Inter, Arial, sans-serif', fontSize:'30px', fontWeight:'bold'}} gutterBottom>
           Add A Menu
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -148,7 +148,7 @@ const AddMenuModal = ({ open, onClose, addMenuItem }) => {
           </Box>
 
           <Box sx={{padding:'20px 0 0', textAlign:'center', justifyContent:'center',}}>
-            <Button type="submit" onClick={handleSubmit} variant="contained"  sx={{ fontFamily: 'Inter', 
+            <Button type="submit" onClick={handleSubmit} variant="contained"  sx={{ fontFamily: 'Inter, Arial, sans-serif', 
             backgroundColor: '#CE383C', color: '#FFFFFF', borderRadius: '6px', width:'180px',              
             padding: '8px 16px', '&:hover': { backgroundColor: '#AB3033', color: '#fff',} }}>
               Add Menu

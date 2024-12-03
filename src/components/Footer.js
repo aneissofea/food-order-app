@@ -32,7 +32,7 @@ const Footer = ({isUsers, setIsUsers}) => {
       <Button
         variant="contained"
         onClick={handleToggle}
-        sx={{ fontSize:'20px', fontFamily:'Inter', backgroundColor: '#CE383C', color: '#fff' , width:'250px', '&:hover': { backgroundColor: '#AB3033', color: '#fff',}}}
+        sx={{ fontSize:'20px', fontFamily:'Inter, Arial, sans-serif', backgroundColor: '#CE383C', color: '#fff' , width:'250px', '&:hover': { backgroundColor: '#AB3033', color: '#fff',}}}
       >
         {isUsers ? 'ADMIN' : 'USER'}
       </Button>

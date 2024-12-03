@@ -13,11 +13,11 @@ const Admin = ({menuItems, addMenuItem, deleteMenuItem}) => {
       {/* AppBar Section */}
       <AppBar position="fixed" elevation={0} sx={{ backgroundColor:'#7DA0B3', padding: '0',}}>
         <Toolbar>
-          <Typography variant="h6" sx={{ fontFamily: 'Inter', fontSize:'28px', fontWeight:'bold' }}>PSSTCO.</Typography>
+          <Typography variant="h6" sx={{ fontFamily: 'Inter, Arial, sans-serif', fontSize:'28px', fontWeight:'bold' }}>PSSTCO.</Typography>
           {/* <Box sx={{ flexGrow: 1 }} /> */}
 
           {/* Middle Section: Links (add component={Link} to Button if got links ya) */}
-          <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', fontFamily: 'Inter', fontSize:'18px,'}}>
+          <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', fontFamily: 'Inter, Arial, sans-serif', fontSize:'18px,'}}>
             <Button  to="/" color="inherit">
               Home
             </Button>
@@ -33,9 +33,9 @@ const Admin = ({menuItems, addMenuItem, deleteMenuItem}) => {
           </Box>
 
           {/* Right Section: Add Menu Button */}
-          <Button variant="contained" onClick={() => setMenuOpen(true)} sx={{ fontFamily: 'Inter', 
+          <Button variant="contained" onClick={() => setMenuOpen(true)} sx={{ fontFamily: 'Inter, Arial, sans-serif', 
           backgroundColor: '#CE383C', color: '#FFFFFF',               
-          borderRadius: '6px', padding: '8px 16px',        
+          borderRadius: '6px', padding: '8px 16px', fontWeight:'bold',       
           '&:hover': { backgroundColor: '#AB3033', color: '#fff'} }}>
             ADD MENU
           </Button>
@@ -57,7 +57,7 @@ const Admin = ({menuItems, addMenuItem, deleteMenuItem}) => {
 
       {/* Menu Title */}
       <Box sx={{ textAlign: 'center', margin: '40px 0 40px' }}>
-        <Typography variant="h4" component="div" sx={{color:'#CE383C', fontFamily:'Inter', fontSize:'64px', fontWeight:'bold',}}>
+        <Typography variant="h4" component="div" sx={{color:'#CE383C', fontFamily:'Inter, Arial, sans-serif', fontSize:'64px', fontWeight:'bold',}}>
           menu
         </Typography>
       </Box>

@@ -16,7 +16,7 @@ const MenuCard = ({ isAdmin, menuItems, deleteMenuItem, onAddToCart }) => {
               alt={item.title}
             />
 
-            <CardContent sx={{color:'#FFF', fontFamily:'Inter', height: '70px'}}>
+            <CardContent sx={{color:'#FFF', fontFamily:'Inter, Arial, sans-serif', height: '70px'}}>
               <Box sx={{display:'flex', justifyContent: 'space-between'}}>
                 <Typography component="div" sx={{fontSize:'19px', fontWeight:'bold'}}>
                   {item.title}
@@ -38,7 +38,7 @@ const MenuCard = ({ isAdmin, menuItems, deleteMenuItem, onAddToCart }) => {
                 onClick={() => deleteMenuItem(item.id)}
                 sx={{
                   position: 'relative',color:'#FFF', 
-                  fontFamily:'Inter', fontSize:'16px'}}
+                  fontFamily:'Inter, Arial, sans-serif', fontSize:'16px'}}
                 >
                   DELETE
                 </Button>
@@ -50,7 +50,7 @@ const MenuCard = ({ isAdmin, menuItems, deleteMenuItem, onAddToCart }) => {
                 onClick={() => onAddToCart(item)} // Pass the selected item to the cart handler
                 sx={{
                   position: 'relative',color:'#FFF', 
-                  fontFamily:'Inter', fontSize:'16px'}}
+                  fontFamily:'Inter, Arial, sans-serif', fontSize:'16px'}}
                 >
                   ADD TO CART
                 </Button>
